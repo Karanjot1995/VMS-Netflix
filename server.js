@@ -11,7 +11,7 @@ async function run() {
     connection = await oracledb.getConnection(  {
         user          : 'kxs9016',
         password      : 'Karannanda95',
-        connectString : 'acaddbprod-2.uta.edu:1521/pcse1p.data.uta.edu',
+        connectString : 'acaddbprod-2.uta.edu:1523/pcse1p.data.uta.edu',
     });      
 
     console.log("Successfully connected to Oracle Database");
