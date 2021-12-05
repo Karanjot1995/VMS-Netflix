@@ -1,5 +1,6 @@
 // @import "./common/ListItem.scss";
 @import "./common/header.scss";
+@import "./common/ListItem.scss";
 
 
 ul{
@@ -27,9 +28,84 @@ ul{
   }
 }
 
-.section{
-  padding:2rem
+.home{
+  .section{
+    border-bottom: 2px dotted #adadad;
+  }
 }
+
+.section{
+  padding:2rem;
+  margin-bottom: 20px;
+}
+.list-item{
+  .title{
+    margin-bottom: 3px;
+  }
+}
+#all-content, #my-list{
+  .section{
+    border-bottom: none;
+    .list-item{
+      width:25%;
+      margin-bottom: 30px;
+    }
+  }
+  .content{
+    flex-wrap: wrap;
+  }
+}
+
+#customers{
+  .section{
+    border-bottom: none;
+    justify-content: space-around;
+  }
+  .react-datepicker-wrapper{
+    width:70%;
+    .react-datepicker__input-container{
+      text-align: right;
+    }
+  }
+  .customer-form{
+    margin-right:20px;
+  }
+  #user-form{
+    width:350px;
+    margin: auto;
+    align-content: space-between;
+    padding: 10px;
+    border: 1px solid #adadad;
+    >div{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+  }
+  .customer-list{
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #ebebeb;
+    }
+  }
+  .scroll-cust{
+    max-height: 80vh;
+    overflow-y: scroll;
+  }
+}
+
+
 
 // .slick-prev:before, .slick-next:before 
 
