@@ -22,8 +22,8 @@ function Customers () {
         // let elem = e.target
         let customerid = document.getElementById('custid').value
         let fname = document.getElementById('fname').value
-        let lanme = document.getElementById('lname').value
-        let emaail = document.getElementById('email').value
+        let lname = document.getElementById('lname').value
+        let email = document.getElementById('email').value
         let phoneno = document.getElementById('phone').value
         let userpassword = document.getElementById('pass').value
         let dob = document.getElementById('dob').value
@@ -31,9 +31,7 @@ function Customers () {
         let expirydate = document.getElementById('exp').value
         let cvv = document.getElementById('cvv').value
 
-        let data = {customerid, fname,lanme,emaail,phoneno,userpassword,dob,cardno,expirydate,cvv}
-
-        console.log(data); // reference by form input's `name` tag
+        let data = {customerid, fname,lname,email,phoneno,userpassword,dob,cardno,expirydate,cvv}
 
         fetch('/add-customer', {
             method: "POST",
@@ -41,8 +39,11 @@ function Customers () {
             body: JSON.stringify(data)
         }).then(res => res.json()).then(d=>console.log(Object.values(d)));
         fetch('/all-customers').then(res => res.json()).then(data=>setCustomers(data.customers))
-
     }
+
+    // function handleChange(e){
+    //     console.log(e.target.id)
+    // }
 
     return (
         <div className="" id="customers">
@@ -65,7 +66,7 @@ function Customers () {
                         </div>
                         <div>
                             <label>Date of Birth</label>
-                            <DatePicker id="dob" dateFormat="yyyy/MM/dd" selected={startDate} onChange={(date) => setStartDate(date)} />
+                            <DatePicker id="dob" dateFormat="yyyy/MM/dd" selected={startDate} onChange={(date) => setStartDate(date)} required/>
                         </div>
                         <div>
                             <label>Email</label>
@@ -119,9 +120,9 @@ function Customers () {
                                         <tr>
                                             <td>{cust['CUSTOMERID']}</td>
                                             <td>{cust['FNAME']}</td>
-                                            <td>{cust['LANME']}</td>
+                                            <td>{cust['LNAME']}</td>
                                             <td>{cust['DOB']}</td>
-                                            <td>{cust['EMAAIL']}</td>
+                                            <td>{cust['EMAIL']}</td>
                                             <td>{cust['USERPASSWORD']}</td>
                                             <td>{cust['PHONENO']}</td>
                                             <td>{cust['CARDNO']}</td>

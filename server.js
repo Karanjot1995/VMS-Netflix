@@ -210,8 +210,8 @@ app.get('/all-customers', async (req, res) => {
 app.post('/add-customer', async (req, res) => {
     let d = req.body
     let data = [
-        Number(d.customerid),d.fname,d.lanme,new Date(d.dob), 
-        d.userpassword, Number(d.phoneno), d.emaail, Number(d.cardno),
+        Number(d.customerid),d.fname,d.lname,new Date(d.dob), 
+        d.userpassword, Number(d.phoneno), d.email, Number(d.cardno),
         Number(d.cvv),Number(d.expirydate)
     ]
     let connection;
@@ -227,7 +227,7 @@ app.post('/add-customer', async (req, res) => {
         console.log("Successfully connected to Oracle Database");
 
         const sql = `INSERT INTO F21_S001_16_Customer 
-        (CustomerID,Fname,Lanme,DOB,UserPassword,PhoneNo,Emaail,CardNo,CVV,ExpiryDate) 
+        (CustomerID,Fname,Lname,DOB,UserPassword,PhoneNo,Email,CardNo,CVV,ExpiryDate) 
         values(:1,:2,:3,:4,:5,:6,:7,:8,:9,:10)`
         
         let res = await connection.executeMany(sql,[data])
