@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Search from "./Search";
 
 class Header extends Component {
     render(){
@@ -28,10 +29,8 @@ class Header extends Component {
                         <a href="/my-list">My List</a>
                     </li>
                     <li className="navigation-menu d-flex">
-                        <input/>
-                        <a className="search btn btn-warning" role="button" aria-haspopup="true" tabindex="0">
-                            <img height="30px" src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/VisualEditor_-_Icon_-_Search-big_-_white.svg/1200px-VisualEditor_-_Icon_-_Search-big_-_white.svg.png'/>
-                        </a>
+                        <Search/>
+                        
                     </li>
                 </ul>
 

@@ -300,7 +300,78 @@ app.post('/country-content', async (req, res) => {
 })
 
 
+
+
+
+app.post('/search', async (req, res) => {
+    let query = req.body.query
+    console.log(query)
+    let data = {}
+    let connection;
+    try {
+    
+        connection = await oracledb.getConnection(  {
+            user          : 'kxs9016',
+            password      : 'Karannanda95',
+            connectString : 'acaddbprod-2.uta.edu:1523/pcse1p.data.uta.edu',
+        });      
+        console.log("Successfully connected to Oracle Database");
+        if(query.length){
+            connection.execute(
+                `select ContentName, AverageRating
+                from F21_S001_16_Content
+                where lower(ContentName) like '${query}%'`,
+                function(err, result) {
+                    if (err) {
+                        console.error(err.message);
+                        return result;
+                    }
+                    else
+                    data = result
+                    return result;
+                }
+            )
+        }
+
+        // connection.execute(
+        //     `select C.ContentID, C.ContentName 
+        //     from F21_S001_16_Content C 
+        //     where C.ContentID NOT IN( 
+        //         ( Select C.ContentID 
+        //         from F21_S001_16_Content C ) 
+        //         MINUS 
+        //         ( Select CL.ContentID 
+        //         from F21_S001_16_ContentLocation CL,F21_S001_16_Content C 
+        //         where CL.ContentID = C.ContentID and CL.CONTENTLOCATION = '${location}') ) 
+        //     order by C.ContentID asc`,
+        //     function(err, result) {
+        //         if (err) {
+        //             console.error(err.message);
+        //             return result;
+        //         }
+        //         else
+        //         data.list = result
+        //         return result;
+        //     }
+        // )  
   
+    } catch (err) {
+        console.error('why this error: ', err);
+    } finally {
+        if (connection) {
+            try {
+            await connection.close();
+            } catch (err) {
+            console.error(err);
+            }
+        }
+    }
+    res.send(data)
+})
+
+
+
+
 
 var listener = app.listen(8000, function(){
     console.log('Listening on port ' + listener.address().port); //Listening on port 8000

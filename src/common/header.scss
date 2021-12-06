@@ -1,5 +1,10 @@
 .main-header{
     background: #000000;
+    position: fixed;
+    left:0;
+    right: 0;
+    height:50px;
+    z-index: 999;
     li{
         padding: 10px;
         a{
@@ -12,4 +17,26 @@
 .search{
     padding: 0!important;
     background: #2166ad!important;
+    position: relative;
+}
+#search{
+    position: relative;
+    #search-results{
+        position: absolute;
+        background: #efefef;
+        border: 1px dotted #3a3a3a;
+        left:0;
+        right:0;
+    }
+    .search-res{
+        border-bottom: 1px dotted #3a3a3a;
+        .desc{
+            width:76%;
+        }
+    }
+    .search-bar{
+        input{
+            width:250px;
+        }
+    }
 }

@@ -31,8 +31,8 @@ function CustomisedList () {
 
 
     return(
-        <div id="my-list">
-            <div className="section">
+        <div id="my-list" className="pt-50">
+            <div className="section header">
                 <h2>Content specific to {country}</h2>
                 <select onChange={handleChange} value={country}>
                     <option value="USA">USA</option>
@@ -43,11 +43,14 @@ function CustomisedList () {
             </div>
             <div className="section">
                 {/* <h3 className="mb-5 text-center">All Content</h3> */}
-                <div className="content d-flex">
-                    {Object.keys(list).length ? list.list.rows.map(item=><ListItem item={item} />): ''}
-                </div>
+                {Object.keys(list).length ? 
+                    <div className="content d-flex">
+                       { list.list.rows.map(item=><ListItem item={item} />)}
+                    </div>
+                    : 
+                    <div className="text-center">Loading...</div>         
+                }
             </div>
-
         </div>
     )
 

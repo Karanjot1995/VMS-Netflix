@@ -46,7 +46,7 @@ function Customers () {
     // }
 
     return (
-        <div className="" id="customers">
+        <div className="pt-50" id="customers">
             <div className="section d-flex">
                
                 <div className="customer-form text-center">
@@ -91,7 +91,6 @@ function Customers () {
                         <div>
                             <label>Expiry Year</label>
                             <DatePicker id="exp" showYearPicker dateFormat="yyyy" selected={year} onChange={(date) => setYear(date)} />
-                            {/* <input type="number" id="exp"/> */}
                         </div>
                         <button className="btn btn-warning">Submit</button>
                     </form>

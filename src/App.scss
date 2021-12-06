@@ -3,6 +3,17 @@
 @import "./common/ListItem.scss";
 
 
+.pt-50{
+  padding-top: 50px;
+}
+
+.pt-100{
+  padding-top: 100px;
+}
+
+.border-btm{
+  border-bottom: 2px dotted #adadad;
+}
 ul{
   list-style-type: none;
 }
@@ -30,7 +41,6 @@ ul{
 
 .home{
   .section{
-    border-bottom: 2px dotted #adadad;
   }
 }
 
@@ -45,7 +55,6 @@ ul{
 }
 #all-content, #my-list{
   .section{
-    border-bottom: none;
     .list-item{
       width:25%;
       margin-bottom: 30px;
@@ -56,9 +65,15 @@ ul{
   }
 }
 
+#my-list{
+  .header{
+    width:83%;
+    margin:auto
+  }
+}
+
 #customers{
   .section{
-    border-bottom: none;
     justify-content: space-around;
   }
   .react-datepicker-wrapper{
@@ -68,10 +83,11 @@ ul{
     }
   }
   .customer-form{
-    margin-right:20px;
+    // margin-right:20px;
+    padding: 0 15px
   }
   #user-form{
-    width:350px;
+    width:330px;
     margin: auto;
     align-content: space-between;
     padding: 10px;

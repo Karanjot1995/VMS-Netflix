@@ -51,8 +51,8 @@ function Home () {
  
     if(Object.keys(allMovies).length){
         return (
-            <div className="home">
-                <div className="section">
+            <div className="home pt-50">
+                <div className="section border-btm">
                     <h3 className="mb-5 text-center">Top 5 Rated Movies</h3>
                     {Object.keys(allMovies).length ? 
                     <Slider className="mb-5" {...settings}>
@@ -80,7 +80,7 @@ function Home () {
             </div>
         )
     }else{
-        return <div className="text-center">Loading...</div>
+        return <div className="text-center pt-100">Loading...</div>
     }
 
 }

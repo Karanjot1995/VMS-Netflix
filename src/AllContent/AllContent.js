@@ -8,16 +8,21 @@ function AllContent () {
         fetch('/all-movies').then(res => res.json()).then(data=>setAllMovies(data))
     },[]);
 
-    return (
-        <div className="" id="all-content">
-            <div className="section">
-                <h3 className="mb-5 text-center">All Content</h3>
-                <div className="content d-flex">
-                    {Object.keys(allMovies).length ? allMovies.content.rows.map(item=><ListItem item={item} />): ''}
+    if(Object.keys(allMovies).length){
+        return (
+            <div className="pt-50" id="all-content">
+                <div className="section">
+                    <h3 className="mb-5 text-center">All Content</h3>
+                    <div className="content d-flex">
+                        {Object.keys(allMovies).length ? allMovies.content.rows.map(item=><ListItem item={item} />): ''}
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        )
+    }else{
+        return <div className="text-center pt-100">Loading...</div>
+    }
+
 }
 
 export default AllContent;
