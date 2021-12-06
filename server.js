@@ -2,10 +2,6 @@
 var express = require('express')
 var app = express()
 const oracledb = require('oracledb');
-// const bodyParser  = require('body-parser');
-
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -332,28 +328,6 @@ app.post('/search', async (req, res) => {
                 }
             )
         }
-
-        // connection.execute(
-        //     `select C.ContentID, C.ContentName 
-        //     from F21_S001_16_Content C 
-        //     where C.ContentID NOT IN( 
-        //         ( Select C.ContentID 
-        //         from F21_S001_16_Content C ) 
-        //         MINUS 
-        //         ( Select CL.ContentID 
-        //         from F21_S001_16_ContentLocation CL,F21_S001_16_Content C 
-        //         where CL.ContentID = C.ContentID and CL.CONTENTLOCATION = '${location}') ) 
-        //     order by C.ContentID asc`,
-        //     function(err, result) {
-        //         if (err) {
-        //             console.error(err.message);
-        //             return result;
-        //         }
-        //         else
-        //         data.list = result
-        //         return result;
-        //     }
-        // )  
   
     } catch (err) {
         console.error('why this error: ', err);
@@ -370,70 +344,7 @@ app.post('/search', async (req, res) => {
 })
 
 
-
-
-
 var listener = app.listen(8000, function(){
     console.log('Listening on port ' + listener.address().port); //Listening on port 8000
 });
 
-
-
-// const oracledb = require('oracledb');
-// const https = require('https')
-
-// oracledb.initOracleClient({libDir: process.env.HOME + '/Downloads/instantclient_19_8'});
-
-// async function run() {
-//   let result;
-//   let connection;
-//   try {
-
-//     connection = await oracledb.getConnection(  {
-//         user          : 'kxs9016',
-//         password      : 'Karannanda95',
-//         connectString : 'acaddbprod-2.uta.edu:1523/pcse1p.data.uta.edu',
-//     });      
-//     // result = https.get('https://jsonplaceholder.typicode.com/todos/1', res => {
-//     //   console.log(`statusCode: ${res.statusCode}`)   
-//     //   return res 
-//     // })
-//     // console.log(result) 
-//     // let res = await Promise.all((resolve,reject)=>)
-
-    
-//     // fetch('https://jsonplaceholder.typicode.com/todos/1')
-//     // .then(response => response.json())
-//     // .then(json => console.log(json))
-//     console.log("Successfully connected to Oracle Database");
-//     // console.log('Connection established')
-
-
-//     // Create a table
-
-
-//   } catch (err) {
-//     console.error('why this error: ', err);
-//   } finally {
-//     if (connection) {
-//       try {
-//         await connection.close();
-//       } catch (err) {
-//         console.error(err);
-//       }
-//     }
-//   }
-// return result
-// }
-
-// run();
-
-
-
-
-        // Create a table
-        // const sql = "INSERT INTO F21_S001_16_Content (ContentID, ContentName, ContentLength, AverageRating, Date_of_Release) values(:1,:2,:3,:4,:5)"
-        // let rows = [[21020, 'TEST', '300', 9.0, new Date(2021-12-03)]]
-        // let res = await connection.executeMany(sql,rows)
-        // console.log(res)
-        // connection.commit();

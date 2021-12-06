@@ -44,7 +44,7 @@ function Search () {
                             <img height="50px" src = 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg'/>
                             <div className="desc d-flex justify-content-between align-items-center">
                                 <p>{item['CONTENTNAME']}</p>
-                                <p>{item['AVERAGERATING'].toFixed(2)}</p>
+                                <p>{item['AVERAGERATING'].toFixed(1)}</p>
                             </div>
                         </div>
                     )}

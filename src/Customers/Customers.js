@@ -17,7 +17,7 @@ function Customers () {
     let AllCustomers = customers!={}? customers.rows : [];
 
     function handleSubmit(e) {
-        e.preventDefault();
+        // e.preventDefault();
         // const data = new FormData(event.target);
         // let elem = e.target
         let customerid = document.getElementById('custid').value
