@@ -62,7 +62,7 @@ function Home () {
                 </div>
                 <div className="section text-center">
                     <h3 className="mb-5">Rating above {rating}</h3>
-                    <p><span>Select best rated movies above </span><input ref={textInput} defaultValue={rating} type="number"/><button onClick={()=>changeRating()}>Submit</button></p>
+                    <p className="mb-5"><span>Select best rated movies above </span><input ref={textInput} defaultValue={rating} type="number"/><button onClick={()=>changeRating()}>Submit</button></p>
                     {Object.keys(bestRated).length ? 
                     <Slider {...settings}>
                         {bestRated.bestRated.rows.map(item=><ListItem item={item} />)}
