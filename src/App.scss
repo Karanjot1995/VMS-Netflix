@@ -58,7 +58,7 @@ h1,h2,h3,p,span{
   margin-bottom: 20px;
 }
 .list-item{
-  >div{
+  .content-link >div{
     background: #fff;
   }
   .title{
@@ -137,6 +137,11 @@ h1,h2,h3,p,span{
     max-height: 80vh;
     overflow-y: scroll;
   }
+}
+
+.edit-content{
+  width:350px;
+  margin: auto;
 }
 
 

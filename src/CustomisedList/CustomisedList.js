@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ListItem from "../common/ListItem";
 
 function CustomisedList () {
@@ -48,7 +48,7 @@ function CustomisedList () {
                        { list.list.rows.map(item=><ListItem item={item} />)}
                     </div>
                     : 
-                    <div className="text-center">Loading...</div>         
+                    <div className="text-center text-light">Loading...</div>         
                 }
             </div>
         </div>

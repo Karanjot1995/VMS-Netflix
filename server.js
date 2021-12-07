@@ -344,6 +344,114 @@ app.post('/search', async (req, res) => {
 })
 
 
+
+
+app.post('/content/:id', async (req, res) => {
+    let data = {}
+    let connection;
+    try {
+    
+        connection = await oracledb.getConnection(  {
+            user          : 'kxs9016',
+            password      : 'Karannanda95',
+            connectString : 'acaddbprod-2.uta.edu:1523/pcse1p.data.uta.edu',
+        });      
+        console.log("Successfully connected to Oracle Database");
+
+        connection.execute(
+            `select * from F21_S001_16_Content
+            where CONTENTID = ${req.params.id}`,
+            function(err, result) {
+                if (err) {
+                    console.error(err.message);
+                    return result;
+                }
+                else
+                data = result
+                return result;
+            }
+        )  
+
+    } catch (err) {
+        console.error('why this error: ', err);
+    } finally {
+        if (connection) {
+            try {
+            await connection.close();
+            } catch (err) {
+            console.error(err);
+            }
+        }
+    }
+    res.send(data)
+})
+
+
+
+
+app.post('/edit-content/:id', async (req, res) => {
+    console.log(req.params.id, req.body)
+    let data = req.body.data
+    let resp = {success:false,data:{}}
+    let connection;
+    try {    
+        connection = await oracledb.getConnection(  {
+            user          : 'kxs9016',
+            password      : 'Karannanda95',
+            connectString : 'acaddbprod-2.uta.edu:1523/pcse1p.data.uta.edu',
+        });      
+        console.log("Successfully connected to Oracle Database");
+
+
+        connection.execute(
+            `UPDATE F21_S001_16_Content 
+            SET ContentName = :1, ContentLength = :2, AverageRating = :3, Date_of_Release = :4 
+            where CONTENTID = :5`,[data[1],data[2],Number(data[3]),new Date(data[4]), req.params.id],
+            function(err, result) {
+                if (err) {
+                    console.error(err.message);
+                    return result;
+                }
+                else
+                resp.success = result
+                return result;
+            }
+        )  
+        connection.commit()
+
+        // if(resp.success){
+            
+        // }
+        connection.execute(
+            `select * from F21_S001_16_Content
+            where CONTENTID = ${req.params.id}`,
+            function(err, result) {
+                if (err) {
+                    console.error(err.message);
+                    return result;
+                }
+                else
+                resp.data = result
+                return result;
+            }
+        )  
+ 
+
+    } catch (err) {
+        console.error('why this error: ', err);
+    } finally {
+        if (connection) {
+            try {
+            await connection.close();
+            } catch (err) {
+            console.error(err);
+            }
+        }
+    }
+    res.send(resp)
+})
+
+
 var listener = app.listen(8000, function(){
     console.log('Listening on port ' + listener.address().port); //Listening on port 8000
 });

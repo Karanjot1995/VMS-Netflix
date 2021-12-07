@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Content from "../common/Content";
 // import ListItem from "../common/ListItem";
 
 function NewPopular () {  

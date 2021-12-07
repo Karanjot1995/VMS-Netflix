@@ -22,6 +22,9 @@ class Header extends Component {
                     {/* <li className="navigation-tab">
                         <a href="/browse/genre/34399">Movies</a>
                     </li> */}
+                    {/* <li className="navigation-tab">
+                        <a href="/content/:id">New &amp; Popular</a>
+                    </li> */}
                     <li className="navigation-tab">
                         <a href="/latest">New &amp; Popular</a>
                     </li>
