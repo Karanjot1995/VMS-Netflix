@@ -1,6 +1,6 @@
 # NPM and Node required to run the project
 # Run "npm install" to install further in project dependencies
-# Run the project using "npm run build"
+# Run the project using "npm run dev"
 
 
 
