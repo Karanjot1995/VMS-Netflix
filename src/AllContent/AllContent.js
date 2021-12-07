@@ -20,7 +20,7 @@ function AllContent () {
             </div>
         )
     }else{
-        return <div className="text-center pt-100">Loading...</div>
+        return <div className="text-center pt-100 text-light">Loading...</div>
     }
 
 }

@@ -61,7 +61,7 @@ function Home () {
                     : ''}
                 </div>
                 <div className="section text-center">
-                    <h3 className="mb-5">Rating above {rating}</h3>
+                    <h3 className="mb-5">Rating above {rating} ({Object.keys(bestRated).length ? bestRated.bestRated.rows.length:''})</h3>
                     <p className="mb-5"><span>Select best rated movies above </span><input ref={textInput} defaultValue={rating} type="number"/><button onClick={()=>changeRating()}>Submit</button></p>
                     {Object.keys(bestRated).length ? 
                     <Slider {...settings}>
@@ -80,7 +80,7 @@ function Home () {
             </div>
         )
     }else{
-        return <div className="text-center pt-100">Loading...</div>
+        return <div className="text-center pt-100 text-light">Loading...</div>
     }
 
 }

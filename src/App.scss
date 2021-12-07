@@ -14,6 +14,16 @@
 .border-btm{
   border-bottom: 2px dotted #adadad;
 }
+
+html, .App{
+  background: #181818;
+}
+.App{
+  .border{
+    border: 1px solid #496785!important;
+  }
+}
+
 ul{
   list-style-type: none;
 }
@@ -39,9 +49,8 @@ ul{
   }
 }
 
-.home{
-  .section{
-  }
+h1,h2,h3,p,span{
+  color: #fff;
 }
 
 .section{
@@ -49,15 +58,23 @@ ul{
   margin-bottom: 20px;
 }
 .list-item{
+  >div{
+    background: #fff;
+  }
   .title{
     margin-bottom: 3px;
+  }
+  p{
+    width: max-content;
+    margin:auto;
+    color: #000;
   }
 }
 #all-content, #my-list{
   .section{
     .list-item{
       width:25%;
-      margin-bottom: 30px;
+      // margin-bottom: 30px;
     }
   }
   .content{
@@ -67,12 +84,13 @@ ul{
 
 #my-list{
   .header{
-    width:83%;
+    width:94%;
     margin:auto
   }
 }
 
 #customers{
+  background: #fff;
   .section{
     justify-content: space-around;
   }
