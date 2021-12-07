@@ -1,3 +1,15 @@
+# NPM and Node required to run the project
+# Run "npm install" to install further in project dependencies
+# Run the project using "npm run build"
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
