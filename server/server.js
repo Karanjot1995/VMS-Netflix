@@ -11,11 +11,11 @@ const mysql = require('mysql');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-var corsOptions = {
-    origin: "http://localhost:8000"
-  };
+// var corsOptions = {
+//     origin: "http://localhost:8000"
+// };
   
-app.use(cors(corsOptions));
+app.use(cors());
 
 let config = {
     host: "34.69.126.48", //IP address of my Cloud SQL Server
@@ -467,7 +467,6 @@ app.post('/api/content/:id', async (req, res) => {
 app.post('/api/user-list', async (req, res) => {
     let data = {userContent:[]}
     let userID = req.body.userid
-    console.log(userID)
     try {
         let connection = mysql.createConnection(config);
         connection.connect();
@@ -606,144 +605,6 @@ app.post('/api/country-content', async (req, res) => {
     }
     res.send(data)
 })
-
-
-
-// app.get('/all-customers', async (req, res) => {
-//     let data = {customers}
-//     try {
-//         conn();
-
-//         let customers = await query(
-//             `SELECT * from F21_S001_16_Customer`
-//         )    
-
-//         data.customers = customers;
-//     } catch (err) {
-//         console.error('why this error: ', err);
-//     } finally {
-//         if (connection) {
-//             try {
-//                 connEnd();                
-//             } catch (err) {
-//             console.error(err);
-//             }
-//         }
-//     }
-//     res.send(data)
-// })
-
-
-
-
-// app.post('/add-customer', async (req, res) => {
-//     let d = req.body
-//     let data = [
-//         Number(d.customerid),d.fname,d.lname,new Date(d.dob), 
-//         d.userpassword, Number(d.phoneno), d.email, Number(d.cardno),
-//         Number(d.cvv),Number(d.expirydate)
-//     ]
-//     let connection;
-//     try {
-    
-//         connection = await oracledb.getConnection(  {
-//             user          : 'kxs9016',
-//             password      : 'Karannanda95',
-//             connectString : 'acaddbprod-2.uta.edu:1523/pcse1p.data.uta.edu',
-//         });      
-
-    
-//         console.log("Successfully connected to Oracle Database");
-
-//         const sql = `INSERT INTO F21_S001_16_Customer 
-//         (CustomerID,Fname,Lname,DOB,UserPassword,PhoneNo,Email,CardNo,CVV,ExpiryDate) 
-//         values(:1,:2,:3,:4,:5,:6,:7,:8,:9,:10)`
-        
-//         let res = await connection.executeMany(sql,[data])
-//         connection.commit();
-  
-//     } catch (err) {
-//         console.error('why this error: ', err);
-//     } finally {
-//         if (connection) {
-//             try {
-//             await connection.close();
-//             } catch (err) {
-//             console.error(err);
-//             }
-//         }
-//     }
-//     res.send(req.body)
-// })
-
-
-
-
-
-// app.post('/edit-content/:id', async (req, res) => {
-//     console.log(req.params.id, req.body)
-//     let data = req.body.data
-//     let resp = {success:false,data:{}}
-//     let connection;
-//     try {    
-//         connection = await oracledb.getConnection(  {
-//             user          : 'kxs9016',
-//             password      : 'Karannanda95',
-//             connectString : 'acaddbprod-2.uta.edu:1523/pcse1p.data.uta.edu',
-//         });      
-//         console.log("Successfully connected to Oracle Database");
-
-
-//         connection.execute(
-//             `UPDATE F21_S001_16_Content 
-//             SET ContentName = :1, ContentLength = :2, AverageRating = :3, Date_of_Release = :4 
-//             where CONTENTID = :5`,[data[1],data[2],Number(data[3]),new Date(data[4]), req.params.id],
-//             function(err, result) {
-//                 if (err) {
-//                     console.error(err.message);
-//                     return result;
-//                 }
-//                 else
-//                 resp.success = result
-//                 return result;
-//             }
-//         )  
-//         connection.commit()
-
-//         // if(resp.success){
-            
-//         // }
-//         connection.execute(
-//             `select * from F21_S001_16_Content
-//             where CONTENTID = ${req.params.id}`,
-//             function(err, result) {
-//                 if (err) {
-//                     console.error(err.message);
-//                     return result;
-//                 }
-//                 else
-//                 resp.data = result
-//                 return result;
-//             }
-//         )  
- 
-
-//     } catch (err) {
-//         console.error('why this error: ', err);
-//     } finally {
-//         if (connection) {
-//             try {
-//             await connection.close();
-//             } catch (err) {
-//             console.error(err);
-//             }
-//         }
-//     }
-//     res.send(resp)
-// })
-
-
-
 
 
 var listener = app.listen(8000, function(){
