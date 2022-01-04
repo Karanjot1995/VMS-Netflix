@@ -6,7 +6,7 @@ function CustomisedList () {
     const [country, setCountry] = useState('USA')
 
     function getData(){
-        fetch('/country-content', {
+        fetch('/api/country-content', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({country})
@@ -22,12 +22,14 @@ function CustomisedList () {
     function handleChange (e) {
         setCountry(e.target.value)
         let loc = e.target.value
-        fetch('/country-content', {
+        fetch('/api/country-content', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({country:loc})
         }).then(res => res.json()).then(data=>setList(data));
     }
+
+    console.log(list)
 
 
     return(
@@ -45,7 +47,9 @@ function CustomisedList () {
                 {/* <h3 className="mb-5 text-center">All Content</h3> */}
                 {Object.keys(list).length ? 
                     <div className="content d-flex">
-                       { list.list.rows.map(item=><ListItem item={item} />)}
+                        <div className="content-list d-flex flex-wrap">
+                          { list.list.map(item=><ListItem mrgBtm={'mb-5'} item={item} />)}
+                        </div>
                     </div>
                     : 
                     <div className="text-center text-light">Loading...</div>         

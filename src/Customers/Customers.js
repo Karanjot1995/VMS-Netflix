@@ -11,7 +11,7 @@ function Customers () {
 
 
     useEffect(async () => {
-        fetch('/all-customers').then(res => res.json()).then(data=>setCustomers(data.customers))
+        fetch('/api/all-customers').then(res => res.json()).then(data=>setCustomers(data.customers))
     },[]);
 
     let AllCustomers = customers!={}? customers.rows : [];
@@ -33,13 +33,15 @@ function Customers () {
 
         let data = {customerid, fname,lname,email,phoneno,userpassword,dob,cardno,expirydate,cvv}
 
-        fetch('/add-customer', {
+        fetch('/api/add-customer', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         }).then(res => res.json()).then(d=>console.log(Object.values(d)));
-        fetch('/all-customers').then(res => res.json()).then(data=>setCustomers(data.customers))
+        fetch('/api/all-customers').then(res => res.json()).then(data=>setCustomers(data.customers))
     }
+
+    // console.log(customers)
 
     // function handleChange(e){
     //     console.log(e.target.id)

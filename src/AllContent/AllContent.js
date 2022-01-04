@@ -1,22 +1,48 @@
 import React, { useState, useEffect } from "react";
 import ListItem from "../common/ListItem";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import { NextArrow, PrevArrow } from "../common/SlickArrow";
+import SliderSection from "../common/Slider/SliderSection";
 
 function AllContent () {  
     const [allMovies, setAllMovies] = useState({})
+
    
     useEffect(async () => {
-        fetch('/all-movies').then(res => res.json()).then(data=>setAllMovies(data))
+        // let hash = 	data.map((item)=>hash[item['GENRE']]?hash[item['GENRE']].push(item) : hash[item['GENRE']] = [item])
+        fetch('/api/all-movies').then(res => res.json()).then(data=> {
+            let hash = {}
+            console.log(data)
+            if(data.content && data.content.length){
+                data.content.map((item)=>hash[item['Genre']] ? hash[item['Genre']].push(item) : hash[item['Genre']] = [item]);
+                setAllMovies(hash)
+            }
+        })
     },[]);
+
+    console.log(allMovies)
+
+    var settings = {
+        dots: false,
+        arrows:true,
+        touchMove:true,
+        draggable:true,        
+        infinite: false,
+        speed: 500,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />    
+    };
 
     if(Object.keys(allMovies).length){
         return (
             <div className="pt-50" id="all-content">
-                <div className="section">
-                    <h3 className="mb-5 text-center">All Content</h3>
-                    <div className="content d-flex">
-                        {Object.keys(allMovies).length ? allMovies.content.rows.map(item=><ListItem item={item} />): ''}
-                    </div>
-                </div>
+                {Object.keys(allMovies).length && Object.keys(allMovies).map(genre=>
+                    <SliderSection list={allMovies[genre]} genre={genre}/>
+                )}
             </div>
         )
     }else{
