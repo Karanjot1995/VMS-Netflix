@@ -1,10 +1,9 @@
 
 var express = require('express')
 var app = express()
+const path = require('path');
 const util = require('util');
-// const oracledb = require('oracledb');
 const cors = require("cors");
-// const mysql = require('promise-mysql');
 const mysql = require('mysql');
 
 const buildPath = path.join(__dirname, '..', 'build');
