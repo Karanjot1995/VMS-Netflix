@@ -17,7 +17,7 @@ function Movies () {
 
    
     useEffect(async () => {
-        fetch(`${BASE_API_URL}/api/user-list`,{
+        fetch(`/api/user-list`,{
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({userid:21001})
@@ -25,7 +25,7 @@ function Movies () {
             console.log(data)
         )
         // let hash = 	data.map((item)=>hash[item['GENRE']]?hash[item['GENRE']].push(item) : hash[item['GENRE']] = [item])
-        fetch(`${BASE_API_URL}/api/movies`).then(res => res.json()).then(data=> {
+        fetch(`/api/movies`).then(res => res.json()).then(data=> {
             let hash = {}
             setMovies(data)
             // if(data.movies && data.movies.length){
@@ -46,7 +46,7 @@ function Movies () {
             }
             setGenMovies(d)
         })
-        fetch(`${BASE_API_URL}/api/new-releases`, {
+        fetch(`/api/new-releases`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({'query':'movie'})
@@ -55,7 +55,7 @@ function Movies () {
             setNewReleases(c)
         })
 
-        fetch(`${BASE_API_URL}/api/popular`,{
+        fetch(`/api/popular`,{
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({type:'movie'})

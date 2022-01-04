@@ -21,17 +21,17 @@ function Home () {
 
 
     function getData(){
-        fetch(`${BASE_API_URL}/api/all-movies`).then(res => res.json()).then(data=>setAllMovies(data))
-        fetch(`${BASE_API_URL}/api/shows`).then(res => res.json()).then(data=>setShows(data))
-        fetch(`${BASE_API_URL}/api/movies`).then(res => res.json()).then(data=>console.log(data))
+        fetch(`/api/all-movies`).then(res => res.json()).then(data=>setAllMovies(data))
+        fetch(`/api/shows`).then(res => res.json()).then(data=>setShows(data))
+        fetch(`/api/movies`).then(res => res.json()).then(data=>console.log(data))
 
-        fetch(`${BASE_API_URL}/api//all-content`).then(res => res.json()).then(data=>setAllContent(data))
-        fetch(`${BASE_API_URL}/api/popular`,{
+        fetch(`/api//all-content`).then(res => res.json()).then(data=>setAllContent(data))
+        fetch(`/api/popular`,{
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
         }).then(res => res.json()).then(data=>setPopular(data))
 
-        fetch(`${BASE_API_URL}/api/best-rated`, {
+        fetch(`/api/best-rated`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({rating:9})
@@ -41,7 +41,7 @@ function Home () {
 
     function changeRating(){
         setRating(textInput.current.value)
-        fetch(`${BASE_API_URL}/api/best-rated`, {
+        fetch(`/api/best-rated`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({rating:textInput.current.value})

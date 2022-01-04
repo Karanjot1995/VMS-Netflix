@@ -13,7 +13,7 @@ function AllContent () {
    
     useEffect(async () => {
         // let hash = 	data.map((item)=>hash[item['GENRE']]?hash[item['GENRE']].push(item) : hash[item['GENRE']] = [item])
-        fetch(`${BASE_API_URL}/api/all-movies`).then(res => res.json()).then(data=> {
+        fetch(`/api/all-movies`).then(res => res.json()).then(data=> {
             let hash = {}
             console.log(data)
             if(data.content && data.content.length){

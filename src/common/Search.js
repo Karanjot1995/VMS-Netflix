@@ -16,7 +16,7 @@ function Search () {
     //     fetch('/search').then(res => res.json()).then(data=>setQuery(data))
     // },[]);
     function handleChange(e){
-        fetch(`${BASE_API_URL}/api/search`, {
+        fetch(`/api/search`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({'query':(e.target.value).toLowerCase()})

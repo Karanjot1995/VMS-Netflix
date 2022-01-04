@@ -40,7 +40,7 @@ function Content (props) {
     // }
 
     useEffect(async () => {
-     fetch(`${BASE_API_URL}/api/content/${id}`, {
+     fetch(`/api/content/${id}`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({id})

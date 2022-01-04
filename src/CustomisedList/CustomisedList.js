@@ -7,7 +7,7 @@ function CustomisedList () {
     const [country, setCountry] = useState('USA')
 
     function getData(){
-        fetch(`${BASE_API_URL}/api/country-content`, {
+        fetch(`/api/country-content`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({country})
@@ -23,7 +23,7 @@ function CustomisedList () {
     function handleChange (e) {
         setCountry(e.target.value)
         let loc = e.target.value
-        fetch(`${BASE_API_URL}/api/country-content`, {
+        fetch(`/api/country-content`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({country:loc})

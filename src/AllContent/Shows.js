@@ -18,7 +18,7 @@ function Shows () {
    
     useEffect(async () => {
         // let hash = 	data.map((item)=>hash[item['GENRE']]?hash[item['GENRE']].push(item) : hash[item['GENRE']] = [item])
-        fetch(`${BASE_API_URL}/api/shows`).then(res => res.json()).then(data=> {
+        fetch(`/api/shows`).then(res => res.json()).then(data=> {
             setShows(data)
             let c = data.shows;
             let d = {}
@@ -34,7 +34,7 @@ function Shows () {
             }
             setGenShows(d)
         })
-        fetch(`${BASE_API_URL}/api/new-releases`, {
+        fetch(`/api/new-releases`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({'query':'TV'})
@@ -42,7 +42,7 @@ function Shows () {
             setNewReleases(c)
         )
 
-        fetch(`${BASE_API_URL}/api/popular`,{
+        fetch(`/api/popular`,{
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({type:'tv'})
