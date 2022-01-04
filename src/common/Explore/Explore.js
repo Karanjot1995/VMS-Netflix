@@ -17,7 +17,7 @@ function Explore (props) {
     useEffect(async () => {
         let c = []
         // let hash = 	data.map((item)=>hash[item['GENRE']]?hash[item['GENRE']].push(item) : hash[item['GENRE']] = [item])
-        fetch('/api/all-content').then(res => res.json()).then(data=> {
+        fetch(`${BASE_API_URL}/api/all-content`).then(res => res.json()).then(data=> {
             if(data.content && data.content.length){
                 for(let g of genre){
                     data.content.map((item)=> item['Genre'].includes(g)?c.push(item):'');

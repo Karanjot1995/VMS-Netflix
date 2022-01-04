@@ -9,7 +9,7 @@ class ListItem extends Component {
     }
 
     addToList(cid){
-        fetch('/api/add-to-list',{
+        fetch(`${BASE_API_URL}/api/add-to-list`,{
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({userid:21001, contentID:cid})
@@ -18,7 +18,7 @@ class ListItem extends Component {
         )
     }
     removeFromList(cid){
-        fetch('/api/remove-from-list',{
+        fetch(`${BASE_API_URL}/api/remove-from-list`,{
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({userid:21001, contentID:cid})
@@ -27,7 +27,7 @@ class ListItem extends Component {
         )
     }
     componentDidMount(){
-        fetch('/api/user-list',{
+        fetch(`${BASE_API_URL}/api/user-list`,{
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({userid:21001})

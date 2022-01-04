@@ -7,6 +7,7 @@ import { NextArrow, PrevArrow } from "../common/SlickArrow";
 import Banner from "../common/Banner";
 import SubNavigation from "../common/SubNav";
 import SliderSection from "../common/Slider/SliderSection";
+import { BASE_API_URL } from "../utils/constants";
 
 function Movies () {  
     const [movies, setMovies] = useState({movies:[],content:[]})
@@ -16,7 +17,7 @@ function Movies () {
 
    
     useEffect(async () => {
-        fetch('/api/user-list',{
+        fetch(`${BASE_API_URL}/api/user-list`,{
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({userid:21001})
@@ -24,7 +25,7 @@ function Movies () {
             console.log(data)
         )
         // let hash = 	data.map((item)=>hash[item['GENRE']]?hash[item['GENRE']].push(item) : hash[item['GENRE']] = [item])
-        fetch('/api/movies').then(res => res.json()).then(data=> {
+        fetch(`${BASE_API_URL}/api/movies`).then(res => res.json()).then(data=> {
             let hash = {}
             setMovies(data)
             // if(data.movies && data.movies.length){
@@ -45,7 +46,7 @@ function Movies () {
             }
             setGenMovies(d)
         })
-        fetch('/api/new-releases', {
+        fetch(`${BASE_API_URL}/api/new-releases`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({'query':'movie'})
@@ -54,7 +55,7 @@ function Movies () {
             setNewReleases(c)
         })
 
-        fetch('/api/popular',{
+        fetch(`${BASE_API_URL}/api/popular`,{
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({type:'movie'})

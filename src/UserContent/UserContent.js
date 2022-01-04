@@ -6,7 +6,7 @@ function UserContent () {
     const [userData, setUserData] = useState({})
 
     function getData(){
-        fetch('/api/user-list',{
+        fetch(`${BASE_API_URL}/api/user-list`,{
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({userid:21001})

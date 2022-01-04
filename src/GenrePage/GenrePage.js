@@ -27,7 +27,7 @@ function GenrePage (props) {
    
     useEffect(async () => {
         if(type=="shows"){
-            fetch('/api/shows').then(res => res.json()).then(data=> {
+            fetch(`${BASE_API_URL}/api/shows`).then(res => res.json()).then(data=> {
                 let hash = {}
                 setCommonData(data.shows)
                 // if(data.shows && data.shows.length){
@@ -51,7 +51,7 @@ function GenrePage (props) {
             })
         }
         if(type=="movies"){
-            fetch('/api/movies').then(res => res.json()).then(data=> {
+            fetch(`${BASE_API_URL}/api/movies`).then(res => res.json()).then(data=> {
                 let hash = {}
                 setCommonData(data.movies)
                 // setAllData(data)

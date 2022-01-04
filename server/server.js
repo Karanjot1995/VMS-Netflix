@@ -5,6 +5,7 @@ const path = require('path');
 const util = require('util');
 const cors = require("cors");
 const mysql = require('mysql');
+const PORT = process.env.PORT || 8000;
 
 const buildPath = path.join(__dirname, '..', 'build');
 app.use(express.static(buildPath));
@@ -608,6 +609,6 @@ app.post('/api/country-content', async (req, res) => {
 })
 
 
-var listener = app.listen(8000, function(){
+var listener = app.listen(PORT, function(){
     console.log('Listening on port ' + listener.address().port); //Listening on port 8000
 });

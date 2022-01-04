@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { NextArrow, PrevArrow } from "../common/SlickArrow";
 import SliderSection from "../common/Slider/SliderSection";
+import { BASE_API_URL } from "../utils/constants";
 
 function AllContent () {  
     const [allMovies, setAllMovies] = useState({})
@@ -12,7 +13,7 @@ function AllContent () {
    
     useEffect(async () => {
         // let hash = 	data.map((item)=>hash[item['GENRE']]?hash[item['GENRE']].push(item) : hash[item['GENRE']] = [item])
-        fetch('/api/all-movies').then(res => res.json()).then(data=> {
+        fetch(`${BASE_API_URL}/api/all-movies`).then(res => res.json()).then(data=> {
             let hash = {}
             console.log(data)
             if(data.content && data.content.length){
