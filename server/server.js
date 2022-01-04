@@ -2,7 +2,7 @@
 var express = require('express')
 var app = express()
 const util = require('util');
-const oracledb = require('oracledb');
+// const oracledb = require('oracledb');
 const cors = require("cors");
 // const mysql = require('promise-mysql');
 const mysql = require('mysql');
@@ -24,7 +24,7 @@ let config = {
     database: 'VMS'
 };
 
-let connection,query;
+let connection;
 
 
 
