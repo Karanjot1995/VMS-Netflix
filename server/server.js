@@ -7,6 +7,8 @@ const cors = require("cors");
 // const mysql = require('promise-mysql');
 const mysql = require('mysql');
 
+const buildPath = path.join(__dirname, '..', 'build');
+app.use(express.static(buildPath));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
