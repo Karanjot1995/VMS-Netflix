@@ -35,8 +35,9 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build",
-    "start": "node server/server.js"
+    "build": "react-scripts build",
+    "start": "node server/server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
   },
   "engines": {
     "node": "14.17.5"
