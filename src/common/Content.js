@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { useParams } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { BASE_API_URL } from "../utils/constants";
 
 
 function Content (props) {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ListItem from "../common/ListItem";
 import SliderSection from "../common/Slider/SliderSection";
+import { BASE_API_URL } from "../utils/constants";
 
 function UserContent () {
     const [userData, setUserData] = useState({})
@@ -20,15 +20,6 @@ function UserContent () {
         getData()
     },[]);
 
-    // function handleChange (e) {
-    //     setCountry(e.target.value)
-    //     let loc = e.target.value
-    //     fetch('/api/country-content', {
-    //         method: "POST",
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify({country:loc})
-    //     }).then(res => res.json()).then(data=>setList(data));
-    // }
 
     console.log(userData)
 

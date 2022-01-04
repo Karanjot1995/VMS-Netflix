@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import Banner from "../common/Banner";
 import { NextArrow, PrevArrow } from "../common/SlickArrow";
 import SliderSection from "../common/Slider/SliderSection";
+import { BASE_API_URL } from "../utils/constants";
 
 function Home () {
     const [allMovies, setAllMovies] = useState({})

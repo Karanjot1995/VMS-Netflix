@@ -3,11 +3,7 @@ import ListItem from "../ListItem";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-
-// import Slider from "react-slick";
-// import { NextArrow, PrevArrow } from "../SlickArrow";
-// import SliderSection from "../Slider/SliderSection";
-
+import { BASE_API_URL } from "../../utils/constants";
 
 function Explore (props) {  
     const [content, setContent] = useState([])

@@ -9,7 +9,7 @@ import { useParams, useLocation } from "react-router-dom";
 import SubNavigation from "../common/SubNav";
 import { FaChevronRight } from "react-icons/fa";
 import SliderSection from "../common/Slider/SliderSection";
-
+import { BASE_API_URL } from "../utils/constants";
 
 
 function GenrePage (props) {  

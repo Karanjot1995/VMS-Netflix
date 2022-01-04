@@ -7,6 +7,7 @@ import { NextArrow, PrevArrow } from "../common/SlickArrow";
 import Banner from "../common/Banner";
 import SubNavigation from "../common/SubNav";
 import SliderSection from "../common/Slider/SliderSection";
+import { BASE_API_URL } from "../utils/constants";
 
 function Shows () {  
     const [shows, setShows] = useState({});

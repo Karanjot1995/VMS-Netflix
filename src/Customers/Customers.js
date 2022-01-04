@@ -3,6 +3,7 @@ import ListItem from "../common/ListItem";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import { BASE_API_URL } from "../utils/constants";
 
 function Customers () {  
     const [customers, setCustomers] = useState({})
